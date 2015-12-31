@@ -31,7 +31,7 @@
 #       forcing users to re-pull the repositories even though the images
 #       themselves are still on disk.
 
-# Note: State is stored in $STATE_DIR, defaulting to /var/lib/docker-gc
+# Note: State is stored in $STATE_DIR, defaulting to /var/lib/jenkins/docker-gc
 
 # The script can send log messages to syslog regarding which images and
 # containers were removed. To enable logging to syslog, set LOG_TO_SYSLOG=1.
@@ -43,10 +43,10 @@ set -o nounset
 set -o errexit
 
 GRACE_PERIOD_SECONDS=${GRACE_PERIOD_SECONDS:=3600}
-STATE_DIR=${STATE_DIR:=/var/lib/docker-gc}
+STATE_DIR=${STATE_DIR:=/var/lib/jenkins/docker-gc}
 FORCE_IMAGE_REMOVAL=${FORCE_IMAGE_REMOVAL:=0}
 DOCKER=${DOCKER:=docker}
-PID_DIR=${PID_DIR:=/var/run}
+PID_DIR=${PID_DIR:=/var/run/jenkins}
 LOG_TO_SYSLOG=${LOG_TO_SYSLOG:=0}
 SYSLOG_FACILITY=${SYSLOG_FACILITY:=user}
 SYSLOG_LEVEL=${SYSLOG_LEVEL:=info}
